@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: price-monitor
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/price_monitor
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
