@@ -10,4 +10,5 @@ public interface PriceHistoryRepository
         extends JpaRepository<PriceHistoryEntity, Long> {
 
     List<PriceHistoryEntity> findByItemIdOrderByCheckedAtDesc(UUID itemId);
+
 }
