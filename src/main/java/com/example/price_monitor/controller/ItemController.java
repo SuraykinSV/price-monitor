@@ -44,4 +44,10 @@ public class ItemController {
                 .status(HttpStatus.CREATED)
                 .body(response);
     }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteItem(@PathVariable UUID id) {
+        itemService.deactivateItem(id);
+    }
 }

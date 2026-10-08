@@ -93,4 +93,19 @@ public class ItemService {
                 .map(priceHistoryMapper::toResponse)
                 .toList();
     }
+
+    @Transactional
+    public void deactivateItem(UUID id) {
+
+        ItemEntity item = itemRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException(id));
+
+        if (!item.isActive()) {
+            return;
+        }
+
+        item.deactivate();
+
+        log.info("Item deactivated, id={}", id);
+    }
 }
